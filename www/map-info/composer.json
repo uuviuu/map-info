@@ -5,10 +5,13 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
+        "ext-redis": "*",
+        "doctrine/dbal": "^4.0@RC",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
+        "laravel/pint": "^1.13",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5"
     },
@@ -18,6 +21,7 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
+        "nunomaduro/larastan": "^1.0",
         "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
@@ -45,6 +49,12 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "analyse": "phpstan analyse",
+        "pint": "./vendor/bin/pint",
+        "check": [
+            "@analyse",
+            "@pint"
         ]
     },
     "extra": {
