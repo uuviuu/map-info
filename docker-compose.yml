@@ -1,0 +1,44 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    container_name: nginx-map-info
+    volumes:
+      - ./hosts:/etc/nginx/conf.d
+      - ./www:/var/www
+      - ./logs:/var/log/nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+
+  php:
+    build: php
+    restart: always
+    container_name: php-map-info
+    volumes:
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./www:/var/www
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-map-info
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    restart: always
+    environment:
+      MYSQL_DATABASE: map_info
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db/initdb/:/docker-entrypoint-initdb.d/
+      - ./db/mysql:/var/lib/mysql
+      - ./db/logs:/var/log/mysql/
+
+  redis:
+    image: redis
+    container_name: redis-map-info
+    ports:
+      - "6380:6379"
+    command: ["sh", "-c", "exec redis-server --requirepass \"redis\""]

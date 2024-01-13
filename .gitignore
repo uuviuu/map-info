@@ -1,0 +1,11 @@
+# logs
+/logs/*
+
+# db
+/db/initdb/*
+/db/mysql/*
+/db/logs/*
+
+# ide config
+/.vscode
+/.idea
