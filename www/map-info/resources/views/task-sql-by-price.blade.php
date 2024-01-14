@@ -12,6 +12,7 @@
                     @csrf
                     <button type="submit" class="mt-3 btn btn-primary"> {{ __('validation.views.button.generate-table') }} </button>
                 </form>
+                <a href="{{ route('home') }}" class="btn btn-primary mt-3"> {{ __('validation.views.page-title.main') }} </a>
             </div>
             @if (session('message'))
                 <div class="mt-3 alert alert-success">

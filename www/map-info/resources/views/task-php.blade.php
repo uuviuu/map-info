@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('title', 'Главная')
+@section('title', __('validation.views.page-title.task-php'))
 @section('content')
     <div class="card-title">
         <h3>{{__('validation.views.page-title.task-php')}}</h3>

@@ -24,6 +24,10 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/task-sql', 'TaskSqlController@getPageSql')->name('task-sql.get-page');
+    Route::group(['prefix' => 'task-sql'], function () {
+        Route::get('/', 'TaskSqlController@getPageSql')->name('task-sql.get-page');
+        Route::post('/generate-table', 'TaskSqlController@createTable')->name('task-sql.generate-table');
+    });
+
     Route::get('/task-php', 'TaskPhpController@getPagePhp')->name('task-php.get-page');
 });

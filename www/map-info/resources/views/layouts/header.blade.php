@@ -7,15 +7,15 @@
                         Map Info
                     </span>
                 </p>
-                <a href="{{ route('home') }}" class="btn btn-primary mt-3"> Главная </a>
+                <a href="{{ route('home') }}" class="btn btn-primary mt-3"> {{ __('validation.views.page-title.main') }} </a>
                 @auth
                     <form class="hidden" action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class=" mt-3 btn btn-danger"> Выход</button>
+                        <button type="submit" class=" mt-3 btn btn-danger"> {{ __('validation.views.button.exit') }} </button>
                     </form>
                 @else
-                    <a href="{{ route('login.get-page') }}" class="btn btn-primary mt-3"> Авторизация </a>
-                    <a href="{{ route('registration.get-page') }}" class="btn btn-primary mt-3"> Регистрация </a>
+                    <a href="{{ route('login.get-page') }}" class="btn btn-primary mt-3"> {{ __('validation.views.button.authorisation') }} </a>
+                    <a href="{{ route('registration.get-page') }}" class="btn btn-primary mt-3"> {{ __('validation.views.button.registration') }} </a>
                 @endauth
             </div>
         </div>
