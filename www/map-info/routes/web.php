@@ -16,9 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@getHome')->name('home');
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::get('/registration', 'AuthController@showRegistration')->name('show-registration');
+    Route::get('/registration', 'AuthController@getPageRegistration')->name('registration.get-page');
     Route::post('/registration', 'AuthController@registration')->name('registration');
-    Route::get('/login', 'AuthController@showLogin')->name('show-login');
+    Route::get('/login', 'AuthController@getPageLogin')->name('login.get-page');
     Route::post('/login', 'AuthController@login')->name('login');
     Route::post('/logout', 'AuthController@logout')->name('logout');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/task-sql', 'TaskSqlController@getPageSql')->name('task-sql.get-page');
+    Route::get('/task-php', 'TaskPhpController@getPagePhp')->name('task-php.get-page');
 });

@@ -1,3 +1,10 @@
+<div class="col-xl-8 col-lg-8 col-sm-12 col-12 m-auto">
+    <p class="mt-5 small m-n font-thin v-center">
+        Map Info {{date('Y')}}
+    </p>
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>

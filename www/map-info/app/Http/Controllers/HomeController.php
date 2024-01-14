@@ -8,6 +8,11 @@ class HomeController extends Controller
 {
     public function getHome(): View
     {
-        return view('home');
+        return view('home', [
+            'pages' => [
+                'task-sql',
+                'task-php',
+            ],
+        ]);
     }
 }

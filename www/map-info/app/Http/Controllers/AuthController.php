@@ -17,7 +17,7 @@ class AuthController extends Controller
     ) {
     }
 
-    public function showRegistration(): View
+    public function getPageRegistration(): View
     {
         return view('registration');
     }
@@ -31,7 +31,7 @@ class AuthController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
-    public function showLogin(): View
+    public function getPageLogin(): View
     {
         return view('login');
     }
