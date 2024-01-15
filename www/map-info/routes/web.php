@@ -33,5 +33,4 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'TaskPhpController@getPagePhp')->name('task-php.get-page');
         Route::get('/get-map-info', 'TaskPhpController@getMapInfo')->name('task-php.get-map-info');
     });
-
 });
