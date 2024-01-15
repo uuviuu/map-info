@@ -158,6 +158,9 @@ return [
         'email' => 'Email',
         'password' => 'Пароль',
         'is_remember' => 'Запомнить',
+        'article' => 'Артикул',
+        'dealer' => 'Дилер',
+        'price' => 'Цена',
     ],
 
     'views' => [
@@ -177,11 +180,13 @@ return [
             'authorisation' => 'Авторизация',
             'registration' => 'Регистрация',
             'generate-table' => 'Сгенерировать таблицу',
+            'filter' => 'Фильтровать',
+            'clear-filter' => 'Очистить фильтры',
         ],
         'message' => [
             'create-table' => 'Таблица успешно создана и заполнена',
             'already-create' => 'Таблица уже была создана',
-        ]
+        ],
     ],
 
 ];

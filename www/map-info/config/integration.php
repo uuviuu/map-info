@@ -2,7 +2,7 @@
 
 return [
     'sql_queries' => [
-        'create_table' => "
+        'create_table' => '
             CREATE TABLE IF NOT EXISTS `shop` (
             `id` INT(11) NOT NULL AUTO_INCREMENT,
             `article` CHAR(10) NOT NULL,
@@ -10,7 +10,7 @@ return [
             `price` FLOAT NOT NULL,
             PRIMARY KEY (`id`)) ENGINE= InnoDB DEFAULT CHARSET=utf8
             AUTO_INCREMENT=1;
-        ",
+        ',
 
         'dump' => "
             INSERT INTO `shop` (`id`, `article`, `dealer`, `price`) VALUES
@@ -22,5 +22,13 @@ return [
             (6, '0001', 'A', 3.32),
             (7, '0002', 'D', 10.99);
         ",
-    ]
+
+        'filter' => '
+            SELECT s1.id, s1.article, s1.dealer, s1.price
+            FROM shop AS s1
+            JOIN (SELECT s2.article, MAX(s2.price) AS price FROM shop AS s2 GROUP BY s2.article) AS s3
+                ON s1.article=s3.article AND  s1.price=s3.price
+            ORDER BY article;
+        ',
+    ],
 ];
