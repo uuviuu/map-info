@@ -24,6 +24,15 @@
         </div>
 
         <div class="card-body">
+            <h5>{{__('validation.views.page-description.results')}}</h5>
+            <ul class="list-group">
+                @foreach($data as $meta)
+                    <li class="list-group-item">{{ $meta['text'] }}</li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="card-body">
             <h5>{{__('validation.views.page-description.history-requests')}}</h5>
             <ul class="list-group">
                 @foreach ($historyRequests as $historyRequest)
