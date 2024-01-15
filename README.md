@@ -15,7 +15,7 @@
 
 ## Установка
 
-- в папку с проектами установите репозиторий: git clone https://github.com/uuviuu/pastebin.git
+- в папку с проектами установите репозиторий: git clone https://github.com/uuviuu/map-info.git
 - docker-compose up -d - установить зависимости из файла docker-compose.yml
 - docker-compose exec php fish
 - cd map-info/
