@@ -29,5 +29,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/generate-table', 'TaskSqlController@createShopTable')->name('task-sql.generate-table');
     });
 
-    Route::get('/task-php', 'TaskPhpController@getPagePhp')->name('task-php.get-page');
+    Route::group(['prefix' => 'task-php'], function () {
+        Route::get('/', 'TaskPhpController@getPagePhp')->name('task-php.get-page');
+        Route::get('/get-map-info', 'TaskPhpController@getMapInfo')->name('task-php.get-map-info');
+    });
+
 });

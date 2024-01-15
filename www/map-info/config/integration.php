@@ -31,4 +31,9 @@ return [
             ORDER BY article;
         ',
     ],
+
+    'api' => [
+        'yandex_map' => env('YANDEX_MAP_API'),
+        'yandex_map_key' => env('YANDEX_MAP_API_KEY'),
+    ],
 ];
