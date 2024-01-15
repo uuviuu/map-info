@@ -33,7 +33,7 @@ return [
     ],
 
     'api' => [
-        'yandex_map' => env('YANDEX_MAP_API'),
-        'yandex_map_key' => env('YANDEX_MAP_API_KEY'),
+        'map_api_key' => env('MAP_API_KEY'),
+        'map_api_url' => env('MAP_API_URL'),
     ],
 ];

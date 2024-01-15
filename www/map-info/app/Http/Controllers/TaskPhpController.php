@@ -7,7 +7,6 @@ use App\Http\Requests\MapInfoRequest;
 use App\Integrations\Task2\TaskPhp;
 use App\Services\HistoryRequestService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -35,18 +34,13 @@ class TaskPhpController extends Controller
             text: $request->get('search'),
         );
 
-        $apiData = TaskPhp::getApiData(
-            "text=$historyRequestDto->text&type=geo&lang=ru_RU&apikey=".config('integration.api.yandex_map_key')
-        );
+        $items = TaskPhp::getItems($historyRequestDto->text);
 
         $this->historyRequestService->createHistoryRequest($historyRequestDto);
         $historyRequests = $this->historyRequestService->getHistoryRequests($historyRequestDto->user_id);
 
-        $features = array_slice($apiData['features'] ?? [], 0, 5);
-        $data = Arr::pluck($features, 'properties.GeocoderMetaData');
-
         return redirect()->back()->with([
-            'data' => $data,
+            'data' => $items,
             'historyRequests' => $historyRequests,
         ]);
     }

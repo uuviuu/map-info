@@ -25,9 +25,21 @@
 
         <div class="card-body">
             <h5>{{__('validation.views.page-description.results')}}</h5>
+
             <ul class="list-group">
-                @foreach($data as $meta)
-                    <li class="list-group-item">{{ $meta['text'] }}</li>
+                @foreach($data as $item)
+                    <li class="list-group-item list-group-item-primary">{{__('validation.attributes.address')}}: {{ $item['full_name'] }}</li>
+
+                    @if($item['type'] == 'building')
+                        <li class="list-group-item list-group-item-success">{{__('validation.views.page-description.micro-district')}} {{ $item['micro-district'] }}</li>
+                    @endif
+
+                    <li class="list-group-item list-group-item-info">{{__('validation.views.page-description.metro')}} </li>
+                    <ul class="p-3 list-group list-group-flush">
+                        @foreach($item['metro'] as $metro)
+                            <li class="list-group-item list-group-item-dark">{{ $metro['full_name'] }}</li>
+                        @endforeach
+                    </ul>
                 @endforeach
             </ul>
         </div>
