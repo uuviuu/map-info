@@ -7,6 +7,8 @@
 - Задача #2. PHP. Получить информацию о районе города, ближайшим станция метро, улице и дому по адресу,
   введённого пользователем в текстовом поле.
 
+В папке www/map-info/app/Integrations находится основная логика решения задач
+
 Реализовано:
 - Авторизация по логину и паролю, регистрация
 - Развертывания проекта через docker-compose
@@ -15,13 +17,13 @@
 
 ## Установка
 
-- в папку с проектами установите репозиторий: git clone https://github.com/uuviuu/map-info.git
+- git clone https://github.com/uuviuu/map-info.git - скачать репозиторий
 - docker-compose up -d - установить зависимости из файла docker-compose.yml
 - docker-compose exec php fish
 - cd map-info/
 - composer install
 - composer dump-autoload
-- cp .env.example .env
+- cp .env.example .env - скопируйте и заполните файл .env в соответствии с примером
 - php artisan key:generate
 - php artisan migrate
 
