@@ -24,10 +24,13 @@ return [
         ",
 
         'filter' => '
-            SELECT s1.id, s1.article, s1.dealer, s1.price
-            FROM shop AS s1
-            JOIN (SELECT s2.article, MAX(s2.price) AS price FROM shop AS s2 GROUP BY s2.article) AS s3
-                ON s1.article=s3.article AND  s1.price=s3.price
+            SELECT id, s1.article, dealer, s1.price
+            FROM shop s1
+            JOIN (
+              SELECT article, MAX(price) AS price
+              FROM shop
+              GROUP BY article) AS s2
+              ON s1.article = s2.article AND s1.price = s2.price
             ORDER BY article;
         ',
     ],
